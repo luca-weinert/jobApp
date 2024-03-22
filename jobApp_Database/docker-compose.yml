@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  mssql:
+    container_name: mcr-sql-server
+    image: mcr.microsoft.com/mssql/server:latest
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Test123#"
+    ports:
+      - 1433:1433
+    volumes:
+      - my-volume:/var/opt/mssql
+
+volumes:
+  my-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./
