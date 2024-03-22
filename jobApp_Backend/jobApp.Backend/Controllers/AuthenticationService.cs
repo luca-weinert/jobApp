@@ -6,8 +6,7 @@ public class AuthenticationService : IAuthenticationService
 {
     public Task<string> Register(RegisterRequest registerRequest)
     {
-        
-        throw new NotImplementedException();
+        return null;
     }
 
     public Task<string> Login(LoginRequest loginRequest)

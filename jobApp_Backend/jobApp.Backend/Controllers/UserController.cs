@@ -8,18 +8,19 @@ namespace jobApp.Backend.Controllers;
 public class UserController : ControllerBase
 {
     private readonly IAuthenticationService _authenticationService;
-    
+
     public UserController(IAuthenticationService authenticationService)
     {
         _authenticationService = authenticationService;
     }
-    
+
     [HttpPost("register")]
-    public void Register(RegisterRequest registerRequest)
+    public IActionResult Register(RegisterRequest registerRequest)
     {
         _authenticationService.Register(registerRequest);
+        return Ok("test");
     }
-    
+
     [HttpPost("login")]
     public void Login(LoginRequest loginRequest)
     {
